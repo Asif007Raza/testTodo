@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id='myinput'>
+    <p id='memo'></p>
+    <button onclick="addthis()">click here</button>
+
+
+
+</body>
+
+<script>
+    // function addthis() {
+    //     var myid =  "54125"
+    //     console.log(myid.length) 
+    //     document.getElementById('memo').innerHTML = myid
+    // }
+
+
+    // var nameOfArray = [{firstName: "daniyal"}, [{lastName: "ali"}, {age: 18}], 'item3']
+    
+    // console.log(nameOfArray[0].firstName)
+
+    // console.log(nameOfArray[2].length)
+
+    // const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    // console.log(fruits)
+
+    var xyv = ['daniyal', 'ali', 'hello', 'world', "heheheheheh", "hgfghf"]
+
+
+
+
+
+       for (let i = 0; i < xyv.length - 1; i++) {
+        document.getElementById('memo').innerHTML +=  xyv[i] + " " + " </br>"
+           
+       }
+
+
+       console.log(xyv[0])
+        // document.getElementById('memo').innerHTML = xyv[0] + "</br>"
+        // document.getElementById('memo').innerHTML += xyv[1] + "</br>"
+        // document.getElementById('memo').innerHTML += xyv[2] + "</br>"
+
+</script>
+
+</html>

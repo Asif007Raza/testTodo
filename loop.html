@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+
+<body>
+    
+
+    <form action="">
+
+    </form>
+    <input type="text" id="myInput">
+    <button onclick="addItem()">ADD</button>
+    <!-- <button onclick="checkLength()">check length</button> -->
+
+    <ul id="myUL" class="myClassUL">
+    </ul>
+
+</body>
+
+
+<script>
+    
+    var itemArray = []
+
+    // Pick data from DOM and push into an empty array
+    function refreshArray() {
+        var liArray = document.querySelectorAll('#myUL li')
+        for (let i = 0; i < liArray.length; i++) {
+            itemArray.push(liArray[i].innerHTML);
+        }
+    }
+
+
+
+
+
+    function addItem() {
+        var myInputValue = document.getElementById('myInput').value
+        if (myInputValue === '') {
+            alert('enter some value')
+        } else {
+            // create empty LI element 
+            var newLi = document.createElement('li')
+            // set inner html into new li
+            newLi.innerHTML = myInputValue
+            // appenchild into my UL (append li but li's now without any buttons)
+            document.getElementById('myUL').appendChild(newLi)
+
+            var newspan = document.createElement('span')
+            newspan.className = 'fas fa-trash-alt'
+            
+
+            var editSpan = document.createElement('span')
+            editSpan.className = 'fas fa-user-edit'
+
+            newLi.appendChild(editSpan)
+            newLi.appendChild(newspan)
+
+
+            newspan.addEventListener('click', function(){
+                newspan.parentElement.remove()
+            })
+
+            editSpan.addEventListener('click', function() {
+                var newValue = prompt('enter you changes', newLi.innerText) 
+                newLi.innerHTML = newValue
+
+                var newspan = document.createElement('span')
+                newspan.className = 'fas fa-trash-alt'
+                
+
+                var editSpan = document.createElement('span')
+                editSpan.className = 'fas fa-user-edit'
+
+                newLi.appendChild(editSpan)
+                newLi.appendChild(newspan)
+
+            })
+            itemArray.length = 0
+            refreshArray()
+            document.getElementById('myInput').value = ""
+        }
+    }
+
+    // console.log(document.querySelectorAll('#myUL')) 
+
+    // console.log(document.getElementById('myUL')) 
+
+    // console.log(document.getElementsByClassName('myClassUL'))
+    
+    // console.log(document.getElementsByTagName('li'))
+
+</script>
+
+
+<style>
+    .fas {
+        padding-left: 10px;
+        padding-right: 10px;
+        float: right;
+        margin-right: 2px;
+    }
+    li {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+        background-color: black;
+        color: white;
+        margin: 5px;
+        padding: 5px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .myClassUL {
+        padding-left: 0;
+    }
+
+    
+
+</style>
+
+</html>
